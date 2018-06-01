@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gameDebug : MonoBehaviour {
+public class gameDebug : MonoBehaviour
+{
+    public bool Debug;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private void Update()
+    {
+        if (Debug == true)
+        {
+            Time.timeScale = 0.5F;
+        }
+    }
 }
