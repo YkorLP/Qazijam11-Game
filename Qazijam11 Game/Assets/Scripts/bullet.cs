@@ -6,6 +6,7 @@ public class bullet : MonoBehaviour
 {
     Rigidbody2D rigidBody;
     public float speed;
+    public float acceleration;
 
     private void Start()
     {
@@ -14,6 +15,6 @@ public class bullet : MonoBehaviour
 
     private void Update()
     {
-        rigidBody.AddForce(gameObject.transform.up * speed * 1);
+        rigidBody.AddForce(gameObject.transform.up * speed * acceleration);
     }
 }

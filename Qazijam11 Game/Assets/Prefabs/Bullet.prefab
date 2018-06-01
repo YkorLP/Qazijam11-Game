@@ -74,6 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
+  acceleration: 5
 --- !u!212 &212786596491415660
 SpriteRenderer:
   m_ObjectHideFlags: 1
