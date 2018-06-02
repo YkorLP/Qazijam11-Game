@@ -5,6 +5,7 @@ TextureImporter:
     21300000: Bullet
     21300002: Heart_Empty
     21300004: Heart_Full
+    21300006: Cursor
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -140,6 +141,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3121af0dfe08803478f5138f63576226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cursor
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 53
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f0e95d3e0aa434ab304a348ef3a21b
       vertices: []
       indices: 
       edges: []

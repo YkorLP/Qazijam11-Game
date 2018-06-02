@@ -11,10 +11,17 @@ public class bullet : MonoBehaviour
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        StartCoroutine(DestroyOverTime());
     }
 
     private void Update()
     {
         rigidBody.AddForce(gameObject.transform.up * speed * acceleration);
+    }
+
+    IEnumerator DestroyOverTime ()
+    {
+        yield return new WaitForSeconds(15f);
+        Destroy(gameObject);
     }
 }
