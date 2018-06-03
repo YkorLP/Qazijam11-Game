@@ -1,33 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerStats : MonoBehaviour
 {
     public bool takeDamageDebug;
 
-    public int hearts;
+    public Slider healthSlider;
+    public GameObject deathUI;
 
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
+    public int health;
 
-    void TakeDamage ()
+    public void TakeDamage ()
     {
-        hearts-= 1;
-
+        health -= Random.Range(4, 8);
     }
 
-    void Update() // hate my life
+    private void Update()
     {
-        if (hearts == 2)
+        healthSlider.value = health;
+
+        if (health <= 0)
         {
-            heart3.GetComponent<Animation>().Play("LoseHealth");
+            deathUI.SetActive(true);
+            Time.timeScale = 0;
+            Cursor.visible = true;
         }
-        if (hearts == 1)
-        {
-            heart2.GetComponent<Animation>().Play("LoseHealth");
-        }
+    }
+
+    public void Restart ()
+    {
+        SceneManager.LoadScene(0);
     }
 
     /*void FindFullHeart ()

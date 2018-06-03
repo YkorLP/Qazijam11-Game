@@ -6,18 +6,29 @@ public class enemy : MonoBehaviour
 {
 
     public GameObject player;
+    public GameObject bullet;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        StartCoroutine(Shoot());
     }
 
     private void FixedUpdate()
     {
-        var playerPosition = player.transform.position;
-        Quaternion rot = Quaternion.LookRotation(transform.position - playerPosition, Vector3.forward);
+        Vector3 diff = player.transform.position - transform.position;
+        diff.Normalize();
 
-        transform.rotation = rot;
-        transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+        float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rot_z - 90);
+    }
+
+    IEnumerator Shoot ()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3f);
+            Instantiate(bullet, transform.position, transform.rotation);
+        }
     }
 }

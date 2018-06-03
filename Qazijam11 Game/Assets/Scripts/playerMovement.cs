@@ -10,6 +10,7 @@ public class playerMovement : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -17,19 +18,19 @@ public class playerMovement : MonoBehaviour
     {
         if(Input.GetKey("w"))
         {
-            transform.position += Vector3.up * speed / 10;
+            transform.position += Vector3.up * speed / 10 * Time.timeScale;
         }
         if (Input.GetKey("s"))
         {
-            transform.position += Vector3.down * speed / 10;
+            transform.position += Vector3.down * speed / 10 * Time.timeScale;
         }
         if (Input.GetKey("a"))
         {
-            transform.position += Vector3.left * speed / 10;
+            transform.position += Vector3.left * speed / 10 * Time.timeScale;
         }
         if (Input.GetKey("d"))
         {
-            transform.position += Vector3.right * speed / 10;
+            transform.position += Vector3.right * speed / 10 * Time.timeScale;
         }
     }
 
