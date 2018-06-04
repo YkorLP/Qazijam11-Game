@@ -1,17 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class enemy : MonoBehaviour
 {
 
     public GameObject player;
     public GameObject bullet;
+    public int health = 10;
+
+    public Slider healthSlider;
 
     private void Start()
     {
         player = GameObject.Find("Player");
         StartCoroutine(Shoot());
+    }
+
+    private void Update()
+    {
+        healthSlider.value = health;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void FixedUpdate()

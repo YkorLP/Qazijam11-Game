@@ -25,9 +25,11 @@ public class bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        int damage = Random.Range(3, 5);
         if (collision.CompareTag("Finish"))
         {
-            Destroy(collision.gameObject);
+            enemy enemystats = collision.gameObject.GetComponent<enemy>();
+            enemystats.health -= damage;
             stats.combo += 1;
         }
     }
