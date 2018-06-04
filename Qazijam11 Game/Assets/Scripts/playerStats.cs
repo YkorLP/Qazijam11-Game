@@ -10,17 +10,20 @@ public class playerStats : MonoBehaviour
 
     public Slider healthSlider;
     public GameObject deathUI;
+    public Text comboText;
 
     public int health;
+    public int combo;
 
     public void TakeDamage ()
     {
-        health -= Random.Range(4, 8);
+        health -= Random.Range(2, 4);
     }
 
     private void Update()
     {
         healthSlider.value = health;
+        comboText.text = "x" + combo;
 
         if (health <= 0)
         {

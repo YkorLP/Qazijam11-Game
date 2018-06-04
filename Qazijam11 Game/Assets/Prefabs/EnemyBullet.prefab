@@ -119,8 +119,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 5
-  rotateSpeed: 200
+  speed: 7
+  rotateSpeed: 300
 --- !u!212 &212079556853518772
 SpriteRenderer:
   m_ObjectHideFlags: 1

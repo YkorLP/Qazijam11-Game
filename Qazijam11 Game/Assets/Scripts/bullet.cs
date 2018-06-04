@@ -7,16 +7,29 @@ public class bullet : MonoBehaviour
     Rigidbody2D rigidBody;
     public float speed;
     public float acceleration;
+    public GameObject player;
+    public playerStats stats;
 
     private void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player");
+        stats = player.GetComponent<playerStats>();
         StartCoroutine(DestroyOverTime());
     }
 
     private void Update()
     {
         rigidBody.AddForce(gameObject.transform.up * speed * acceleration);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Finish"))
+        {
+            Destroy(collision.gameObject);
+            stats.combo += 1;
+        }
     }
 
     IEnumerator DestroyOverTime ()
